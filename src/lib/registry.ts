@@ -141,7 +141,7 @@ const COMPONENTS: Record<string, ComponentDef> = {
   hologram: {
     base: "Hologram",
     description:
-      "A sci-fi holographic overlay with vertical scanlines, chromatic RGB fringing, phase shifting wave distortion, and a cyan/blue tint. The HTML stays interactive. No dependencies.",
+      "A volumetric holographic projection that follows your cursor with scanline interference, RGB fringing, projection warp, power fluctuation, floating dust, and tracking glitch artifacts. The HTML stays interactive. No dependencies.",
   },
   "glass-object": {
     base: "GlassObject",

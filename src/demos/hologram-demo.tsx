@@ -11,14 +11,16 @@ import { useDemoControls } from "@/hooks/use-demo-controls";
 import { Hologram } from "@/lib/Hologram/Hologram";
 
 const CONTROLS = {
-  intensity: scrub("Intensity", 1, { min: 0, max: 2, step: 0.05 }),
-  speed: scrub("Speed", 0.5, { min: 0, max: 3, step: 0.1, decimals: 1 }),
-  scanlines: scrub("Scanlines", 12, { min: 1, max: 30, step: 1, decimals: 0 }),
-  rgbShift: scrub("RGB Shift", 2, { min: 0, max: 12, step: 0.5, decimals: 1 }),
-  flicker: scrub("Flicker", 0.15, { min: 0, max: 1, step: 0.02 }),
-  tint: scrub("Tint", 0.6, { min: 0, max: 1, step: 0.02 }),
-  opacity: scrub("Opacity", 0.85, { min: 0, max: 1, step: 0.02 }),
-  wave: scrub("Wave", 3, { min: 0, max: 15, step: 1, decimals: 0 }),
+  intensity: scrub("Intensity", 1, { min: 0, max: 3, step: 0.05 }),
+  speed: scrub("Speed", 0.6, { min: 0, max: 3, step: 0.1, decimals: 1 }),
+  scanlines: scrub("Scanlines", 18, { min: 1, max: 40, step: 1, decimals: 0 }),
+  rgbShift: scrub("RGB Shift", 3, { min: 0, max: 20, step: 0.5, decimals: 1 }),
+  flicker: scrub("Flicker", 0.2, { min: 0, max: 1, step: 0.02 }),
+  tint: scrub("Tint", 0.5, { min: 0, max: 1, step: 0.02 }),
+  opacity: scrub("Opacity", 0.8, { min: 0, max: 1, step: 0.02 }),
+  warp: scrub("Warp", 6, { min: 0, max: 20, step: 0.5, decimals: 1 }),
+  glitch: scrub("Glitch", 0.4, { min: 0, max: 1, step: 0.02 }),
+  follow: scrub("Follow", 0.18, { min: 0.02, max: 1, step: 0.02 }),
 };
 
 export function HologramDemo({ children }: { children: ReactNode }) {

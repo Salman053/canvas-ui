@@ -11,61 +11,76 @@ import { DemoImageSection } from "@/demos/demo-image-cycler";
 export const metadata: Metadata = {
   title: "Hologram",
   description:
-    "Wraps your content in a canvas using the html-in-canvas API and overlays a sci-fi holographic effect with vertical scanlines, chromatic RGB fringing, phase shifting wave distortion, flicker, and a cyan/blue tint. No dependencies, works in any framework.",
+    "Wraps your content in a canvas using the html-in-canvas API and projects it as a volumetric holographic display with cursor-tracking scanlines, RGB fringing, projection warp, power fluctuation, and dust particles. No dependencies, works in any framework.",
   alternates: { canonical: "/docs/components/hologram" },
 };
 
 const DESCRIPTION =
-  "A sci-fi holographic overlay that scans across this page with vertical scanlines, chromatic RGB fringing, and a subtle wave distortion. Tune the intensity, scanline density, color tint, and more. This page is the demo.";
+  "A volumetric holographic projection that scans across this page. The effect follows your cursor: scanlines warp around it, content bends toward it, and fast movements trigger tracking glitch artifacts. Tune every layer. This page is the demo.";
 
 const API_REFERENCE: ApiProp[] = [
   {
     name: "intensity",
-    description: "Overall strength of the hologram effect (0 to 2).",
+    description: "Overall strength of the hologram effect (0 to 3).",
     type: "number",
     defaultValue: "1",
   },
   {
     name: "speed",
-    description: "Speed of the scrolling phase shift and wave animation.",
+    description: "Speed of the floating dust, power fluctuation, and animation.",
     type: "number",
-    defaultValue: "0.5",
+    defaultValue: "0.6",
   },
   {
     name: "scanlines",
-    description: "Density of vertical scanlines. Lower is chunkier.",
+    description: "Density of vertical scanlines (1 to 40). Lower is chunkier.",
     type: "number",
-    defaultValue: "12",
+    defaultValue: "18",
   },
   {
     name: "rgbShift",
-    description: "Chromatic RGB fringing offset in CSS pixels.",
+    description: "Chromatic RGB fringing in CSS pixels (0 to 20).",
     type: "number",
-    defaultValue: "2",
+    defaultValue: "3",
   },
   {
     name: "flicker",
-    description: "Amount of random brightness flicker (0 to 1).",
+    description: "Power fluctuation / flicker amount (0 to 1).",
     type: "number",
-    defaultValue: "0.15",
+    defaultValue: "0.2",
   },
   {
     name: "tint",
-    description: "Cyan/blue tint strength (0 to 1).",
+    description: "Cyan/blue tint mix (0 to 1).",
     type: "number",
-    defaultValue: "0.6",
+    defaultValue: "0.5",
   },
   {
     name: "opacity",
     description: "Overall opacity of the hologram overlay (0 to 1).",
     type: "number",
-    defaultValue: "0.85",
+    defaultValue: "0.8",
   },
   {
-    name: "wave",
-    description: "Horizontal phase wave amplitude in CSS pixels.",
+    name: "warp",
+    description:
+      "Projection warp strength: how much content bends toward the cursor (0 to 20).",
     type: "number",
-    defaultValue: "3",
+    defaultValue: "6",
+  },
+  {
+    name: "glitch",
+    description:
+      "How intensely the hologram glitches on fast cursor movement (0 to 1).",
+    type: "number",
+    defaultValue: "0.4",
+  },
+  {
+    name: "follow",
+    description:
+      "How smoothly the hologram follows the cursor (0 to 1). 1 snaps to it immediately.",
+    type: "number",
+    defaultValue: "0.18",
   },
   {
     name: "className",
@@ -97,7 +112,7 @@ export default async function HologramPage() {
         apiReference={API_REFERENCE}
         beforeInstall={
           <DemoImageSection
-            hint="Photos make the scanlines, RGB fringing, and cyan/blue tint easy to see. Crank up intensity and wave for a more pronounced effect."
+            hint="Photos make the scanlines, RGB fringing, projection warp, and dust particles easy to see. Move your cursor quickly to trigger glitch artifacts."
             alt="Demo photo for the Hologram effect"
           />
         }
